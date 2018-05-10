@@ -1,0 +1,48 @@
+<!-- Open Access Button Search
+     David Baker, Milligan College 2018
+     License: MIT
+     Simple search box for Open Access Button (openaccessbutton.org) -->
+
+<style>
+  #oabtext {
+    width: 70%;
+    height: 2em;
+    margin-right: 1em;
+    background-image: url('https://openaccessbutton.org/static/icon_OAB.png');
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 0.5em;
+    padding-left: 2em;
+    border: 1px solid;
+  }
+  #oabsearch {
+    border: 1px solid #666; 
+    padding: 5px 20px; 
+    display: inline-block; 
+    background: #dadada; 
+    border-radius: 3px; 
+    text-decoration: none; 
+  }
+</style>
+
+<h3>Is Your Article Available Open Access?</h3>
+<p>Open access reduces barriers to research. Before completing your request through Interlibrary Loan, check to see if the article has been made freely available open access by the author.</p>
+<p>You can search for an article's URL, DOI, PMID, PMC ID, Title, or Citation.</p>
+<p>
+  <input id="oabtext" type="text">
+  <a href="https://openaccessbutton.org/?url=" id="oabsearch" target="_blank">Search</a>
+</p>
+
+<script>
+  var searchlink = document.querySelector('#oabsearch');
+  var searchtext = document.querySelector('#oabtext');
+  searchlink.onclick = function() {
+    searchlink.setAttribute('href', "https://openaccessbutton.org/?url=" + searchtext.value);
+  };
+  searchtext.onkeydown = function(e) {
+    if (e.keyCode == 13) {
+      searchlink.click(); 
+      e.preventDefault(); 
+    }
+  };
+</script>
